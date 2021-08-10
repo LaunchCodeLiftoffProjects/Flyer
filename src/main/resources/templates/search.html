@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+  <div th:replace="fragments :: page-header"></div>
+
+  <div class="container body-content">
+    <form th:action="@{/search/results}" method="post">
+      <h2>Search by:</h2>
+
+      <p>
+        <label for="searchTerm">Keyword:</label>
+        <input type="text" th:value="${searchTerm}" name="searchTerm" id="searchTerm"/>
+      </p>
+
+      <input type="submit" value="Search" />
+    </form>
+  </div>
+
+</body>
+</html>
