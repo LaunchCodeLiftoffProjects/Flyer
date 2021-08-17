@@ -5,16 +5,16 @@
 <body>
 
 <div th:replace="fragments :: page-header"></div>
-
-<div class="container body-content">
-  <h2>View Concerts By:</h2>
-  <ul>
-    <li th:each="action : ${actions}">
-      <a th:href="@{'/' + ${action.key}}" th:text="${action.value}"></a>
-    </li>
-  </ul>
+<div id="homepage" class="main">
+    <h2>Its a ShowTime!</h2>
+    <img src="/images/concert-crowd.jpg" alt ="concert image" >
 </div>
-
+<div class="main">
+    <p class="centeredTable">
+        Its a way to Connect Fans to Music.
+        You can create an event, schedule a Tour and Share the experience
+    </p>
+</div>
 </body>
 
 </html>
