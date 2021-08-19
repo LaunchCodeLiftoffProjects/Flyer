@@ -3,7 +3,7 @@ package org.launchcode.demo.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Concert {
@@ -23,6 +23,16 @@ public class Concert {
     private String time;
 
     private String price;
+
+    public Concert(int id, String bandName, String city, String venue, String date, String time, String price) {
+        this.id = id;
+        this.bandName = bandName;
+        this.city = city;
+        this.venue = venue;
+        this.date = date;
+        this.time = time;
+        this.price = price;
+    }
 
     public Concert() {
     }
@@ -79,9 +89,19 @@ public class Concert {
         this.price = price;
     }
 
-//    public List<Concert> getConcerts() {return concerts;}
-//
-//    public void setConcerts(List<Concert> concerts) {
-//        this.concerts = concerts;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Concert that =(Concert) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() { return Objects.hash(id); }
+
+    @Override
+    public String toString() {
+        return bandName;
+    }
 }

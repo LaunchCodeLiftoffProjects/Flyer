@@ -5,35 +5,42 @@
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<h1>Add Job</h1>
+<h1>Add Concert</h1>
 
 <form method="post" style="max-width:600px;">
     <div class="form-group">
-        <label th:for="name">Name</label>
-        <input class="form-control" th:field="${job.name}" />
-        <span th:errors="${job.name}" class="error"></span>
+        <label th:for="bandName">Band Name</label>
+        <input class="form-control" th:field="${concert}" />
+
     </div>
 
     <div class="form-group">
-        <label th:for="employer">Employer</label>
-        <select name="employerId">
-            <option th:each="employer : ${employers}"
-                    th:text="${employer.name}"
-                    th:value="${employer.id}"></option>
-        </select>
-        <a th:href="@{'/employers/add'}">Add Employers</a>
+        <label th:for="name">City</label>
+        <input class="form-control" th:field="${concert}" />
+        <span th:errors="${concert}" class="error"></span>
     </div>
 
     <div class="form-group">
-        <label th:for="skills">Skills</label>
-        <th:block th:each="skill : ${skills}">
-            <input type="checkbox" name="skills" th:value="${skill.id}">
-            <label th:text="${skill.name}"></label>
-        </th:block>
-        <a th:href="@{'/skills/add'}">Add Skills</a>
+        <label th:for="name">Venue</label>
+        <input class="form-control" th:field="${concert}" />
+        <span th:errors="${concert}" class="error"></span>
     </div>
 
-    <input type="submit" value="Add Job" />
+    <div class="form-group">
+        <label th:for="name">Time</label>
+        <input class="form-control" th:field="${concert}" />
+        <span th:errors="${concert}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="name">Price</label>
+        <input class="form-control" th:field="${concert}" />
+        <span th:errors="${concert}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Add Concert" />
+
+
 </form>
 
 </body>
