@@ -13,26 +13,19 @@ public class Concert {
     @GeneratedValue
     private int id;
 
-    @NotEmpty(message = "Must enter a band name")
     private String bandName;
 
-    @NotEmpty(message = "Must enter a city")
     private String city;
 
-    @NotEmpty(message = "Must enter a venue")
     private String venue;
 
-    @NotEmpty(message = "Must enter a date")
     private String date;
 
-    @NotEmpty(message = "Must enter a time")
     private String time;
 
-    @NotEmpty(message = "Must enter a price")
     private String price;
 
-    public Concert(int id, String bandName, String city, String venue, String date, String time, String price) {
-        this.id = id;
+    public Concert(String bandName, String city, String venue, String date, String time, String price) {
         this.bandName = bandName;
         this.city = city;
         this.venue = venue;
@@ -100,8 +93,8 @@ public class Concert {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Concert that =(Concert) o;
-        return id == that.id;
+        Concert concert =(Concert) o;
+        return id == concert.id;
     }
 
     @Override

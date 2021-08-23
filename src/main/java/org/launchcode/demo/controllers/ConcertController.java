@@ -33,11 +33,12 @@ public class ConcertController {
     public String processAddConcertForm(@ModelAttribute @Valid Concert newConcert,
                                         Errors errors, Model model) {
 
+        //has errors because it just reloads /add. if i remove these lines it falls back to whitelabel error page
         if (errors.hasErrors()) {
             return "add";
-        } else {
+        }
 
-        concertRepository.save(newConcert);}
+        concertRepository.save(newConcert);
 
         return "concerts";
     }
