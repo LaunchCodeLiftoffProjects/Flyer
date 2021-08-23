@@ -3,6 +3,7 @@ package org.launchcode.demo.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
 @Entity
@@ -12,16 +13,22 @@ public class Concert {
     @GeneratedValue
     private int id;
 
+    @NotEmpty(message = "Must enter a band name")
     private String bandName;
 
+    @NotEmpty(message = "Must enter a city")
     private String city;
 
+    @NotEmpty(message = "Must enter a venue")
     private String venue;
 
+    @NotEmpty(message = "Must enter a date")
     private String date;
 
+    @NotEmpty(message = "Must enter a time")
     private String time;
 
+    @NotEmpty(message = "Must enter a price")
     private String price;
 
     public Concert(int id, String bandName, String city, String venue, String date, String time, String price) {
@@ -102,6 +109,6 @@ public class Concert {
 
     @Override
     public String toString() {
-        return bandName;
+        return bandName + city;
     }
 }

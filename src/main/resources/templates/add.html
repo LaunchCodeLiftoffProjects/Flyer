@@ -11,29 +11,35 @@
     <div class="form-group">
         <label th:for="bandName">Band Name</label>
         <input class="form-control" th:field="${concert}" />
-
+        <span th:errors="${concert}" class="error"></span>
     </div>
 
     <div class="form-group">
-        <label th:for="name">City</label>
+        <label th:for="date">Date</label>
         <input class="form-control" th:field="${concert}" />
         <span th:errors="${concert}" class="error"></span>
     </div>
 
     <div class="form-group">
-        <label th:for="name">Venue</label>
+        <label th:for="city">City</label>
         <input class="form-control" th:field="${concert}" />
         <span th:errors="${concert}" class="error"></span>
     </div>
 
     <div class="form-group">
-        <label th:for="name">Time</label>
+        <label th:for="venue">Venue</label>
         <input class="form-control" th:field="${concert}" />
         <span th:errors="${concert}" class="error"></span>
     </div>
 
     <div class="form-group">
-        <label th:for="name">Price</label>
+        <label th:for="time">Time</label>
+        <input class="form-control" th:field="${concert}" />
+        <span th:errors="${concert}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="price">Price</label>
         <input class="form-control" th:field="${concert}" />
         <span th:errors="${concert}" class="error"></span>
     </div>

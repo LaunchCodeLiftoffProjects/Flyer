@@ -19,29 +19,32 @@ public class ConcertController {
     @Autowired
     private ConcertRepository concertRepository;
 
+    //17.3.2
     @GetMapping("add")
     public String displayAddConcertForm(Model model) {
         model.addAttribute("title", "Add Concert");
         model.addAttribute(new Concert());
-        model.addAttribute("concert", concertRepository.findAll());
-
+        model.addAttribute("concerts", concertRepository.findAll());
 
         return "add";
     }
 
     @PostMapping("add")
-    public String processAddJobForm(@ModelAttribute @Valid Concert newConcert,
-                                    Errors errors, Model model) {
+    public String processAddConcertForm(@ModelAttribute @Valid Concert newConcert,
+                                        Errors errors, Model model) {
 
-//        if (errors.hasErrors()) {
-//            return "add";
-//        }
+        if (errors.hasErrors()) {
+            return "add";
+        } else {
 
+        concertRepository.save(newConcert);}
 
+        return "concerts";
+    }
 
-        concertRepository.save(newConcert);
-
-        return "redirect:";
+    @GetMapping("")
+    public String listAllConcerts(Model model){
+        return "concerts";
     }
 
 }
