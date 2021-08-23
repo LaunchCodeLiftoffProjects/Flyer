@@ -9,16 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("concerts")
+@RequestMapping("add")
 public class ConcertController {
 
-    private static List<String> concerts = new ArrayList<>();
+    @RequestMapping("")
+    public String add(Model model) {
 
-    @GetMapping
-    public String displayAllConcerts(Model model) {
-        model.addAttribute("title", "All Concerts");
-        model.addAttribute("concerts", concerts);
-        return "concerts/index";
+        return "add";
     }
+
+//    private static List<String> add = new ArrayList<>();
+//
+//    @GetMapping
+//    public String displayAllConcerts(Model model) {
+//        model.addAttribute("title", "All Concerts");
+//        model.addAttribute("add", add);
+//        return "add/index";
+//    }
 
 }
