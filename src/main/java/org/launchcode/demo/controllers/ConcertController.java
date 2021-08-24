@@ -40,12 +40,12 @@ public class ConcertController {
 
         concertRepository.save(newConcert);
 
-        return "concerts";
+        return "redirect:";
     }
 
-    @GetMapping("")
-    public String listAllConcerts(Model model){
-        return "concerts";
-    }
+//    @GetMapping("")
+//    public String listAllConcerts(Model model){
+//        return "concerts";
+//    }
 
 }
