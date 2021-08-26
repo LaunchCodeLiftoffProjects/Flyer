@@ -31,7 +31,7 @@ public class ConcertController {
         return "add";
     }
 
-    @PostMapping("add")
+    @PostMapping("")
     public String processAddConcertForm(@ModelAttribute @Valid Concert newConcert,
                                         Errors errors, Model model) {
 
@@ -41,7 +41,7 @@ public class ConcertController {
 
         concertRepository.save(newConcert);
 
-        return "redirect:";
+        return "list";
     }
 
 //    private static List<String> add = new ArrayList<>();
