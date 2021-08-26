@@ -16,6 +16,17 @@
 <form th:action="@{/search/results}" method="post">
   <h2 class="centered">Search by:</h2>
 
+<!--  <p>-->
+<!--    <span th:each="column :: ${columns}">-->
+<!--      <input-->
+<!--        type="radio"-->
+<!--        name="searchType"-->
+<!--        th:id="${column.key}"-->
+<!--        th:value="{column.key}"-->
+<!--        th:checked="${column.key == 'all'}"/>-->
+<!--    </span>-->
+<!--  </p>-->
+
   <p class="centered">
     <label for="searchTerm">Keyword:</label>
     <input type="text" th:value="${searchTerm}" name="searchTerm" id="searchTerm"/>
