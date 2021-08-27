@@ -8,16 +8,18 @@
   <link th:href="@{/css/concert.css}" rel="stylesheet" />
   <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
-  <title th:text="'Concert Tours' + ${title == null ? '' : ' :: ' + title}">Concert Tours</title>
+  <title th:text="'Concert Tours' + ${title == null ? '' : ' :: ' + title}">Flyer</title>
 </head>
 
 <body>
 
   <div th:fragment="page-header" class="sidenav">
+
       <a href="home">Flyer</a>
       <a href="list">Tours List</a>
       <a href="add">Add Tour</a>
       <a href="artist">Artist</a>
+
 
   </div>
 
