@@ -5,8 +5,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value = "search")
-public class SearchController {
+@RequestMapping(value = "artist")
+public class ArtistController {
 
+    @RequestMapping("")
+    public String add(Model model) {
+
+        return "artist";
+    }
 
 }

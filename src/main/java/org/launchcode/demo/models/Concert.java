@@ -3,12 +3,11 @@ package org.launchcode.demo.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+
 import java.util.Objects;
 
 @Entity
 public class Concert {
-
     @Id
     @GeneratedValue
     private int id;

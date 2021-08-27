@@ -10,11 +10,10 @@ import java.util.HashMap;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = "", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "home", method = {RequestMethod.GET, RequestMethod.POST})
     public String index(Model model) {
         model.addAttribute("title","Tours");
         return "index";
     }
-
 
 }
