@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+<p th:unless="${artists} and ${artists.size()}">No Artists!</p>
+
+<div class="main">
+  <h2>Add Artist</h2>
+  <form action="add" method="post">
+    <label for="name" value="Artist Name"></label>
+    <input type="text" name="name" />
+    <input type="submit"  value ="add Artist"/>
+  </form>
+</div>
+</body>
+
+</html>
