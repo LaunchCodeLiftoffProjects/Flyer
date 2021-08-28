@@ -6,6 +6,7 @@ import org.launchcode.demo.models.data.ConcertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,12 +17,19 @@ import java.util.HashMap;
 @RequestMapping(value = "list")
 public class ListController {
 
-    @RequestMapping("")
-    public String list(Model model) {
+//    @RequestMapping("")
+//    public String list(Model model) {
+//
+//        model.addAttribute("columns", columnChoices);
+//
+//        return"list";
+//    }
 
-        model.addAttribute("columns", columnChoices);
-
-        return"list";
+    @GetMapping //or @RequestMapping?
+    public String displayAllEvents(Model model) {
+        model.addAttribute("title", "All Concerts");
+        model.addAttribute("concerts", concertRepository.findAll());
+        return "list";
     }
 
     @Autowired

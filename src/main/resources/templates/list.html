@@ -4,15 +4,15 @@
 
   <div th:replace="fragments :: page-header"></div>
   <div class="container body-content">
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-    <h2 class = "centered">View Concerts By Category</h2>
+<!--    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>-->
+    <h1 class = "centered">All Concerts</h1>
   </div>
 
 </head>
 
 <body>
 
-<h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+<!--<h1 th:text="${#strings.capitalizeWords(title)}"></h1>-->
 <form th:action="@{/search/results}" method="post">
   <h2 class="centered">Search by:</h2>
 
@@ -34,6 +34,27 @@
 
   <input type="submit" value="Search" />
 </form>
+
+<table class="centered">
+  <thead>
+  <tr>
+    <th>Band</th>
+    <th>Date</th>
+    <th>City</th>
+    <th>Venue</th>
+    <th>Time</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tr th:each="concert : ${concerts}">
+    <td th:text="${concert.bandName}"></td>
+    <td th:text="${concert.date}"></td>
+    <td th:text="${concert.city}"></td>
+    <td th:text="${concert.venue}"></td>
+    <td th:text="${concert.time}"></td>
+    <td th:text="${concert.price}"></td>
+  </tr>
+</table>
 
 
 
