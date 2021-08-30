@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+<p th:unless="${artists} and ${artists.size()}">No Artists!</p>
+
+<div class="main">
+    <h2 th:text="${'Artist ID :' + artist.id}">Default Name</h2>
+    <h2 th:text="${'Artist Name :' + artist.name}">Default Name</h2>
+</div>
+</body>
+
+</html>
