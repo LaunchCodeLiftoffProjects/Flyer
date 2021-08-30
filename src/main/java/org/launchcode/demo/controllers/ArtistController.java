@@ -1,5 +1,6 @@
 package org.launchcode.demo.controllers;
 
+
 import org.launchcode.demo.models.Artist;
 import org.launchcode.demo.models.data.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,7 @@ public class ArtistController {
         else {
             return "redirect:../";
         }
+
     }
 
 }
