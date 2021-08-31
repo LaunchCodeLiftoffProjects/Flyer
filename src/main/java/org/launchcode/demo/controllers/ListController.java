@@ -37,7 +37,7 @@ public class ListController {
 
     static HashMap<String, String> columnChoices = new HashMap<>();
 
-    @PostMapping("results")
+    @PostMapping("search")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         Iterable<Concert> concerts;
         if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")) {
@@ -49,6 +49,6 @@ public class ListController {
         model.addAttribute("title", "Concerts with " + columnChoices.get(searchType) + ": " + searchTerm);
         model.addAttribute("concerts", concerts);
 
-            return "list";
+            return "search";
         }
     }
