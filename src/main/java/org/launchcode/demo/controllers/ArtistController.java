@@ -1,6 +1,5 @@
 package org.launchcode.demo.controllers;
 
-
 import org.launchcode.demo.models.Artist;
 import org.launchcode.demo.models.data.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +32,13 @@ public class ArtistController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "add")
-    public String addArtist(@ModelAttribute @Valid Artist newArtist, Errors errors){
-        //model.addAttribute("title","Add Artist Name");
+    public String addArtist(@ModelAttribute @Valid Artist newArtist, Errors errors, Model model){
+        model.addAttribute("title",newArtist.getBirthdate());
+        model.addAttribute("artist",newArtist);
+
         if(errors.hasErrors()){
+            System.out.println(errors.getAllErrors());
+            System.out.println(newArtist.getBirthdate());
             return "artists/add";
         }
         artistRepository.save(newArtist);
@@ -55,7 +58,6 @@ public class ArtistController {
         else {
             return "redirect:../";
         }
-
     }
 
 }
