@@ -22,29 +22,32 @@ public class Concert {
     @GeneratedValue
     private int id;
 
-    @NotBlank(message =  "BandName is required")
-    @Size(min=1, max=50)
+//    @NotBlank(message =  "BandName is required")
+//    @Size(min=1, max=50)
     private String bandName;
 
-    @NotBlank(message = "City is required")
-    @Size(min=1, max=50)
+//    @NotBlank(message = "City is required")
+//    @Size(min=1, max=50)
     private String city;
 
-    @NotBlank(message = "Venue is required")
-    @Size(min=1, max=150)
+//    @NotBlank(message = "Venue is required")
+//    @Size(min=1, max=150)
     private String venue;
 
-    @NotBlank(message = "Concert Date is required")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
+//TODO Change formating of date MM-DD-YYYY
+//    @NotBlank(message = "Concert Date is required")
+    @DateTimeFormat(pattern = "MM-DD-YYYY")
     private LocalDate date;
 
-   // @DateTimeFormat(pattern ="hh:mm a")
-   @NotBlank(message = "Concert Time is required")
-   @Size(min=1, max=50)
+    //TODO time displaying 24hr instead of 12hr.
+    @DateTimeFormat(pattern ="hh:mm a")
+//   @NotBlank(message = "Concert Time is required")
+//   @Size(min=1, max=50)
     private String time;
 
-    @NotBlank(message = "Price is required")
-    @Size(min=1, max=50)
+//    @NotBlank(message = "Price is required")
+//    @Size(min=1, max=50)
     private float price;
 
     @ManyToMany(mappedBy="concerts")

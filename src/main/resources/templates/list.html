@@ -48,12 +48,11 @@
   </thead>
   <tr th:each="concert : ${concerts}">
     <td th:text="${concert.bandName}"></td>
-    <td th:text="${concert.artists}"></td>
     <td th:text="${concert.date}"></td>
     <td th:text="${concert.city}"></td>
     <td th:text="${concert.venue}"></td>
     <td th:text="${concert.time}"></td>
-    <td th:text="${concert.price}"></td>
+    <td th:text="'$' + ${concert.price}"></td>
   </tr>
 </table>
 
