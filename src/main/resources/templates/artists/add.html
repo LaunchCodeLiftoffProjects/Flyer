@@ -2,17 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
-<body>
+<body class="container body-content">
 
 <div th:replace="fragments :: page-header"></div>
-<p th:unless="${artists} and ${artists.size()}">No Artists!</p>
 
 <div class="main">
   <h2>Add Artist</h2>
-  <form action="add" method="post">
-    <label for="name" value="Artist Name"></label>
-    <input type="text" name="name" />
-    <input type="submit"  value ="add Artist"/>
+  <form action="add" method="post" style="max-width:600px;">
+
+      <div class="form-group" >
+          <label th:for="name">Name</label>
+          <input class="form-control" th:field="${artist.name}" />
+          <span th:errors="${artist.name}" class="error"></span>
+      </div>
+
+      <div class="form-group">
+          <label th:for="instrument">Instrument</label>
+          <input class="form-control" th:field="${artist.instrument}" />
+          <span th:errors="${artist.instrument}" class="error"></span>
+      </div>
+
+      <div class="form-group">
+          <label th:for="genre">Genre</label>
+          <input class="form-control" th:field="${artist.genre}" />
+          <span th:errors="${artist.genre}" class="error"></span>
+      </div>
+
+      <div class="form-group">
+          <label th:for="birthdate">Date of Birth</label>
+          <input type="date" class="form-control" th:field="${artist.birthdate}" />
+          <span th:errors="${artist.birthdate}" class="error"></span>
+      </div>
+    <input type="submit"  value ="Add Artist" />
   </form>
 </div>
 </body>

@@ -1,6 +1,7 @@
 package org.launchcode.demo.controllers;
 
 import org.launchcode.demo.models.Concert;
+import org.launchcode.demo.models.data.ArtistRepository;
 import org.launchcode.demo.models.data.ConcertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,12 +25,16 @@ public class ConcertController {
     @Autowired
     private ConcertRepository concertRepository;
 
+    @Autowired
+    private ArtistRepository artistRepository;
+
 
     @GetMapping("")
     public String displayAddConcertForm(Model model) {
         model.addAttribute("title", "Add Concert");
         model.addAttribute(new Concert());
         model.addAttribute("concerts", concertRepository.findAll());
+        model.addAttribute("artists",  artistRepository.findAll());
 
         return "add";
     }

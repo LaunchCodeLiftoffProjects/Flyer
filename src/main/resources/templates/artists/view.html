@@ -8,8 +8,11 @@
 <p th:unless="${artists} and ${artists.size()}">No Artists!</p>
 
 <div class="main">
-    <h2 th:text="${'Artist ID :' + artist.id}">Default Name</h2>
-    <h2 th:text="${'Artist Name :' + artist.name}">Default Name</h2>
+    <h1 style = "position: center" th:text="${artist.name}">Default Name</h1>
+    <h2 th:text="${'Instrument Played :' + artist.instrument}">Default instrument</h2>
+    <h2 th:text="${'Genre :' + artist.genre}">Default Genre</h2>
+    <h2 th:text="${'Date Of Birth :' + artist.birthdate}">Default birthdate</h2>
+    <h2 th:text="${'Age :' + artist.age}">Default birthdate</h2>
 </div>
 </body>
 
