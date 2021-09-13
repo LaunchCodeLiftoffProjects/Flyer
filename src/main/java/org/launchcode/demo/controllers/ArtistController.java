@@ -27,7 +27,7 @@ public class ArtistController {
 
     @RequestMapping(method = RequestMethod.GET, value = "add")
     public String addArtistForm(Model model){
-        //model.addAttribute(new Artist());
+        model.addAttribute(new Artist());
         return "artists/add";
     }
 

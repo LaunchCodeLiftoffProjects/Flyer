@@ -2,20 +2,27 @@ package org.launchcode.demo.models;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
+import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Artist {
     @Id
     @GeneratedValue
     private int id;
+
+    @ManyToMany
+
+    private List<Concert> concerts= new ArrayList<>();
 
     @NotBlank(message = "Artist Name is required")
     @Size(min = 1, max = 50)
@@ -80,14 +87,21 @@ public class Artist {
         return age;
     }
 
-    public Artist(int id, String name, String instrument, String genre, LocalDate birthdate) {
-        this.id = id;
+    public List<Concert> getConcerts() {
+        return concerts;
+    }
+
+    public void setConcerts(List<Concert> concerts) {
+        this.concerts = concerts;
+    }
+
+    public Artist(List<Concert> concerts, String name, String instrument, String genre, LocalDate birthdate, int age) {
+        this.concerts = concerts;
         this.name = name;
         this.instrument = instrument;
         this.genre = genre;
         this.birthdate = birthdate;
-        Period period = Period.between(birthdate,LocalDate.now());
-        this.age = period.getYears();
+        this.age = age;
     }
 
     public Artist(){

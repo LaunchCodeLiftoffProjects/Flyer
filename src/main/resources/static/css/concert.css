@@ -112,3 +112,23 @@ img {
     font-family: "Times New Roman", Times, serif;
 
 }
+
+.profile-img{
+position:fixed;
+left: 180px;
+width:160px;
+height:160px;
+}
+
+.float-child{
+    width: 50%;
+    height: 50%;
+    float: left;
+    padding: 20px;
+    }
+
+.float-child1{
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;}
