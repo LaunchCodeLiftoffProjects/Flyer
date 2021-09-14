@@ -44,6 +44,7 @@ public class ConcertController {
                                         Errors errors, Model model) {
 
         if(errors.hasErrors()) {
+            System.out.println(errors.getAllErrors());
             return "add";
         }
 

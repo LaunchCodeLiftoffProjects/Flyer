@@ -20,8 +20,7 @@ public class Artist {
     @GeneratedValue
     private int id;
 
-    @ManyToMany
-
+    @ManyToMany(mappedBy = "artists")
     private List<Concert> concerts= new ArrayList<>();
 
     @NotBlank(message = "Artist Name is required")

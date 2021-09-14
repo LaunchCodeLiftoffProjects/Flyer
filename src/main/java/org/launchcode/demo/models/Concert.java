@@ -34,7 +34,7 @@ public class Concert {
     @Size(min=1, max=150)
     private String venue;
 
-    @NotBlank(message = "Concert Date is required")
+//    @NotBlank(message = "Concert Date is required")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
@@ -43,12 +43,12 @@ public class Concert {
    @Size(min=1, max=50)
     private String time;
 
-    @NotBlank(message = "Price is required")
-    @Size(min=1, max=50)
+    //@NotBlank(message = "Price is required")
+    //@Size(min=1, max=150)
     private float price;
 
-    @ManyToMany(mappedBy="concerts")
-    private List<Artist> artists= new ArrayList<>();
+    @ManyToMany
+    private List<Artist> artists = new ArrayList<>();
 
     public Concert(String bandName, String city, String venue, LocalDate date, String time, float price, List<Artist> artists) {
         this.bandName = bandName;
