@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import java.time.LocalDate;
@@ -22,16 +23,16 @@ public class Concert {
     @GeneratedValue
     private int id;
 
-//    @NotBlank(message =  "BandName is required")
-//    @Size(min=1, max=50)
+    @NotBlank(message =  "BandName is required")
+    @Size(min=1, max=150)
     private String bandName;
 
-//    @NotBlank(message = "City is required")
-//    @Size(min=1, max=50)
+    @NotBlank(message = "City is required")
+    @Size(min=1, max=50)
     private String city;
 
-//    @NotBlank(message = "Venue is required")
-//    @Size(min=1, max=150)
+    @NotBlank(message = "Venue is required")
+    @Size(min=1, max=150)
     private String venue;
 
 
@@ -42,11 +43,11 @@ public class Concert {
 
     //TODO time displaying 24hr instead of 12hr.
     @DateTimeFormat(pattern ="hh:mm a")
-//   @NotBlank(message = "Concert Time is required")
-//   @Size(min=1, max=50)
+   @NotBlank(message = "Concert Time is required")
+   @Size(min=1, max=50)
     private String time;
 
-//    @NotBlank(message = "Price is required")
+    @NotNull(message = "Price is required")
 //    @Size(min=1, max=50)
     private float price;
 
