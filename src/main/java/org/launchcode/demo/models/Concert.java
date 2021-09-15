@@ -23,28 +23,28 @@ public class Concert {
     @GeneratedValue
     private int id;
 
-    @NotBlank(message =  "BandName is required")
-    @Size(min=1, max=150)
+//    @NotBlank(message =  "BandName is required")
+//    @Size(min=1, max=150)
     private String bandName;
 
-    @NotBlank(message = "City is required")
-    @Size(min=1, max=50)
+//    @NotBlank(message = "City is required")
+//    @Size(min=1, max=50)
     private String city;
 
-    @NotBlank(message = "Venue is required")
-    @Size(min=1, max=150)
+//    @NotBlank(message = "Venue is required")
+//    @Size(min=1, max=150)
     private String venue;
 
 
 //TODO Change formating of date MM-DD-YYYY
 //    @NotBlank(message = "Concert Date is required")
     @DateTimeFormat(pattern = "MM-DD-YYYY")
-    private LocalDate date;
+    private String date;
 
     //TODO time displaying 24hr instead of 12hr.
     @DateTimeFormat(pattern ="hh:mm a")
-   @NotBlank(message = "Concert Time is required")
-   @Size(min=1, max=50)
+//   @NotBlank(message = "Concert Time is required")
+//   @Size(min=1, max=50)
     private String time;
 
     @NotNull(message = "Price is required")
@@ -54,7 +54,7 @@ public class Concert {
     @ManyToMany(mappedBy="concerts")
     private List<Artist> artists= new ArrayList<>();
 
-    public Concert(String bandName, String city, String venue, LocalDate date, String time, float price, List<Artist> artists) {
+    public Concert(String bandName, String city, String venue, String date, String time, float price, List<Artist> artists) {
         this.bandName = bandName;
         this.city = city;
         this.venue = venue;
@@ -95,11 +95,11 @@ public class Concert {
         this.venue = venue;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
