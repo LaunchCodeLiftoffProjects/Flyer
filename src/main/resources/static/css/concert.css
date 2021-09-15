@@ -9,13 +9,18 @@ td, th {
 th {
     text-align: center;
 }
+body{
+background-color: #25212a;
+background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23383241' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+color: #b3afaf
+}
 
 td {
     vertical-align: top;
 }
 
 tr:nth-child(odd) {
-    background-color: #e4e4e4;
+    background-color: #7f7b86
 }
 
 table.centered {
@@ -45,9 +50,17 @@ label {
     text-align: center;
 }
 
+h2{
+  vertical-align: top;
+    margin-left: 30px;
+    color: #b3afaf
+    font-family: Impact, Charcoal, Helvetica Inserat, Bitstream Vera Sans Bold, Arial Black, sans serif.;
+}
+
 p {
     vertical-align: top;
     margin-left: 30px;
+    color: #b3afaf
 }
 
 .centeredTable {
@@ -58,7 +71,7 @@ p {
 div.job-listing {
     border: 1px solid #e4e4e4;
     width: 80%;
-    background-color: #e4e4e4;
+    background-color: #7f7b86;
 }
 
 /* The sidebar menu */
@@ -69,7 +82,7 @@ div.job-listing {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black */
+  background-color: black;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -79,13 +92,13 @@ div.job-listing {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #b3afaf;
   display: block;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #25212a;
 }
 
 /* Style page content */
@@ -132,3 +145,11 @@ height:160px;
     float: left;
     padding: 20px;
     border: 2px solid red;}
+
+P.blocktext{
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    padding:10px
+}
+

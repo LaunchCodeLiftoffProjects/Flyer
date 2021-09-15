@@ -1,6 +1,7 @@
 package org.launchcode.demo.models;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static javax.print.attribute.Size2DSyntax.MM;
 
 @Entity
 public class Concert {
@@ -38,7 +41,7 @@ public class Concert {
 
 //TODO Change formating of date MM-DD-YYYY
 //    @NotBlank(message = "Concert Date is required")
-    @DateTimeFormat(pattern = "MM-DD-YYYY")
+    @DateTimeFormat(pattern = "MM/dd/yyyy")
     private String date;
 
     //TODO time displaying 24hr instead of 12hr.
