@@ -1,6 +1,7 @@
 package org.launchcode.demo.models;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import java.time.LocalDate;
@@ -16,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static javax.print.attribute.Size2DSyntax.MM;
+
 @Entity
 public class Concert {
     @Id
@@ -23,7 +27,7 @@ public class Concert {
     private int id;
 
 //    @NotBlank(message =  "BandName is required")
-//    @Size(min=1, max=50)
+//    @Size(min=1, max=150)
     private String bandName;
 
 //    @NotBlank(message = "City is required")
@@ -37,8 +41,8 @@ public class Concert {
 
 //TODO Change formating of date MM-DD-YYYY
 //    @NotBlank(message = "Concert Date is required")
-    @DateTimeFormat(pattern = "MM-DD-YYYY")
-    private LocalDate date;
+    @DateTimeFormat(pattern = "MM/dd/yyyy")
+    private String date;
 
     //TODO time displaying 24hr instead of 12hr.
     @DateTimeFormat(pattern ="hh:mm a")
@@ -46,14 +50,14 @@ public class Concert {
 //   @Size(min=1, max=50)
     private String time;
 
-//    @NotBlank(message = "Price is required")
+    @NotNull(message = "Price is required")
 //    @Size(min=1, max=50)
     private float price;
 
     @ManyToMany(mappedBy="concerts")
     private List<Artist> artists= new ArrayList<>();
 
-    public Concert(String bandName, String city, String venue, LocalDate date, String time, float price, List<Artist> artists) {
+    public Concert(String bandName, String city, String venue, String date, String time, float price, List<Artist> artists) {
         this.bandName = bandName;
         this.city = city;
         this.venue = venue;
@@ -94,11 +98,11 @@ public class Concert {
         this.venue = venue;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

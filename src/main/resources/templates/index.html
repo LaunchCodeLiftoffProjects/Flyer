@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
-
+<html lang="en">
+<head th:replace="fragments :: head">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
 <body>
 
 <div th:replace="fragments :: page-header"></div>
 
 <div id="homepage" class="centered">
     <h2>It's Showtime!</h2>
+    <img class="centered" src="/images/concert-crowd.jpg" alt ="concert image" >
 
-    <img src="/images/concert-crowd.jpg" alt ="concert image" >
 </div>
 <div class="main">
     <p class="centered">
@@ -19,4 +24,9 @@
 </div>
 </body>
 
+<footer>
+    <p class="centered">Created by Team Alphabet</p>
+</footer>
+
 </html>
+
