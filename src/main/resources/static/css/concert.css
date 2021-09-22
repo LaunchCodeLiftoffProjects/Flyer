@@ -132,3 +132,11 @@ height:160px;
     float: left;
     padding: 20px;
     border: 2px solid red;}
+
+.artist-tbl {
+    width: 50%;
+    float: centered;
+    padding: 20px;
+    border: 2px solid;
+    position: center;
+}

@@ -5,8 +5,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -39,6 +40,9 @@ public class Artist {
     private LocalDate birthdate;
 
     private int age;
+
+    @OneToMany(mappedBy = "artist")
+    List<PostMessage> posts = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -86,6 +90,11 @@ public class Artist {
         return age;
     }
 
+    public void setAge() {
+        Period period = Period.between(getBirthdate(),LocalDate.now());
+        this.age = period.getYears();
+    }
+
     public List<Concert> getConcerts() {
         return concerts;
     }
@@ -94,16 +103,25 @@ public class Artist {
         this.concerts = concerts;
     }
 
-    public Artist(List<Concert> concerts, String name, String instrument, String genre, LocalDate birthdate, int age) {
+    public Artist(List<Concert> concerts, String name, String instrument, String genre, LocalDate birthdate, int age, List<PostMessage> posts) {
         this.concerts = concerts;
         this.name = name;
         this.instrument = instrument;
         this.genre = genre;
         this.birthdate = birthdate;
         this.age = age;
+        this.posts = posts;
     }
 
     public Artist(){
 
+    }
+
+    public List<PostMessage> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<PostMessage> posts) {
+        this.posts = posts;
     }
 }

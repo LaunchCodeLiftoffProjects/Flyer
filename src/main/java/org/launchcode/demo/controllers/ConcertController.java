@@ -28,13 +28,13 @@ public class ConcertController {
     @Autowired
     private ArtistRepository artistRepository;
 
-
     @GetMapping("")
     public String displayAddConcertForm(Model model) {
         model.addAttribute("title", "Add Concert");
         model.addAttribute(new Concert());
         model.addAttribute("concerts", concertRepository.findAll());
         model.addAttribute("artists",  artistRepository.findAll());
+//        model.addAttribute("artistConcertDto",)
 
         return "add";
     }

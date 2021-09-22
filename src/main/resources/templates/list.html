@@ -50,10 +50,10 @@
   <tr th:each="concert : ${concerts}">
     <td th:text="${concert.bandName}"></td>
     <td>
-      <ul th:each="artist: ${concert.artists}">
-          <li th:tex="${artist.name}">
-          </li>
-      </ul>
+      <table>
+        <tr th:each="artist: ${concert.artists}">
+        <td th:text="${artist.name}"</td>
+      </table>
     </td>
     <td th:text="${concert.date}"></td>
     <td th:text="${concert.city}"></td>

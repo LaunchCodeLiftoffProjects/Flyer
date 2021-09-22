@@ -131,6 +131,9 @@ public class Concert {
         return Float.compare(concert.price, price) == 0 && bandName.equals(concert.bandName) && city.equals(concert.city) && venue.equals(concert.venue) && date.equals(concert.date) && time.equals(concert.time) && artists.equals(concert.artists);
     }
 
+    public void addArtist(Artist artist){
+        this.artists.add(artist);
+    }
     @Override
     public int hashCode() {
         return super.hashCode();
