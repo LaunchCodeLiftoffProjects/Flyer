@@ -2,6 +2,8 @@
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
+
+
 <head th:replace="fragments :: head"></head>
 <body class="container body-content">
 
@@ -10,19 +12,16 @@
 <div class="main">
   <h1>Create Your Concert!</h1>
 
-  <form method="post" style="max-width:600px;">
-    <div class="form-group">
-      <label th:for="bandName">Band Name</label>
-      <input class="form-control" th:field="${concert.bandName}" />
-      <span th:errors="${concert.bandName}" class="error"></span>
-    </div>
-
     <div class="form-group">
       <label th:for="artists">Artists</label>
-      <th:block th:each="artist : ${artists}">
-        <input type="checkbox" name="artist" th:value="${artist.id}">
-        <label th:text="${artist.name}"></label>
-      </th:block>
+      <th:block th:each="artist : ${artists}"></th:block>
+
+      <form action="">Artists:
+        <select>
+          <option th:each="artist : ${artists}" th:value="${artist.id}" th:text="${artist.name}"></option>
+        </select>
+      </form>
+
       <a th:href="@{'/artists/add'}">Add Artist</a>
     </div>
 
