@@ -18,17 +18,6 @@
 <form th:action="@{/search/results}" method="post">
   <h2 class="centered">Search by:</h2>
 
-<!--  <p>-->
-<!--    <span th:each="column :: ${columns}">-->
-<!--      <input-->
-<!--        type="radio"-->
-<!--        name="searchType"-->
-<!--        th:id="${column.key}"-->
-<!--        th:value="{column.key}"-->
-<!--        th:checked="${column.key == 'all'}"/>-->
-<!--    </span>-->
-<!--  </p>-->
-
   <p class="centered">
     <label for="searchTerm">Keyword:</label>
     <input type="text" th:value="${searchTerm}" name="searchTerm" id="searchTerm"/>
@@ -40,7 +29,7 @@
 <table class="centered">
   <thead>
   <tr>
-    <th>Band</th>
+    <th>Artist</th>
     <th>Date</th>
     <th>City</th>
     <th>Venue</th>
@@ -50,7 +39,7 @@
   </thead>
   <tbody id="myTable">
   <tr th:each="concert : ${concerts}">
-    <td th:text="${concert.bandName}"></td>
+    <td th:value="${artistName}"></td>
     <td th:text="${concert.date}"></td>
     <td th:text="${concert.city}"></td>
     <td th:text="${concert.venue}"></td>

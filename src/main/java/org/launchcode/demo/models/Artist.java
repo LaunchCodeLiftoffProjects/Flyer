@@ -29,9 +29,7 @@ public class Artist {
     private String name;
 
     //TODO Change instrument to number of members, eventually (maybe) list band members w/ their instruments.
-    @NotBlank(message = "instrument can not be empty")
-    @Size (min = 1, max = 50)
-    private String instrument;
+    private int members;
 
     @NotBlank(message = "Genre can not be empty")
     @Size (min = 1, max = 50)
@@ -58,12 +56,12 @@ public class Artist {
         this.id = id;
     }
 
-    public String getInstrument() {
-        return instrument;
+    public int getMembers() {
+        return members;
     }
 
-    public void setInstrument(String instrument) {
-        this.instrument = instrument;
+    public void setMembers(int members) {
+        this.members = members;
     }
 
     public LocalDate getEstDate() {
@@ -96,10 +94,10 @@ public class Artist {
         this.concerts = concerts;
     }
 
-    public Artist(List<Concert> concerts, String name, String instrument, String genre, LocalDate estDate, int age) {
+    public Artist(List<Concert> concerts, String name, int members, String genre, LocalDate estDate, int age) {
         this.concerts = concerts;
         this.name = name;
-        this.instrument = instrument;
+        this.members = members;
         this.genre = genre;
         this.estDate = estDate;
         this.age = age;
