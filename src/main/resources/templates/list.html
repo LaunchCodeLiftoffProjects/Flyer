@@ -2,6 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.js"></script>
+
 <head th:replace="fragments :: head">
 
   <div th:replace="fragments :: page-header"></div>
@@ -49,16 +54,22 @@
   </tr>
   </thead>
   <tbody id="myTable">
-  <tr th:each="concert : ${concerts}">
-    <td th:text="${concert.bandName}"></td>
-    <td th:text="${concert.date}"></td>
-    <td th:text="${concert.city}"></td>
-    <td th:text="${concert.venue}"></td>
-    <td th:text="${concert.time}"></td>
-    <td th:text="'$' + ${concert.price}"></td>
-  </tr>
+    <tr th:each="concert : ${concerts}">
+      <td th:text="${concert.bandName}"></td>
+      <td th:text="${concert.date}"></td>
+      <td th:text="${concert.city}"></td>
+      <td th:text="${concert.venue}"></td>
+      <td th:text="${concert.time}"></td>
+      <td th:text="'$' + ${concert.price}"></td>
+    </tr>
   </tbody>
 </table>
+
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 
 <script>
 $(document).ready(function(){
