@@ -4,10 +4,7 @@ package org.launchcode.demo.models;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -26,9 +23,9 @@ public class Concert {
     @GeneratedValue
     private int id;
 
-//    @NotBlank(message =  "BandName is required")
+    @NotBlank(message =  "BandName is required")
 //    @Size(min=1, max=150)
-    private String bandName;
+//    private String bandName;
 
 //    @NotBlank(message = "City is required")
 //    @Size(min=1, max=50)
@@ -54,11 +51,11 @@ public class Concert {
 //    @Size(min=1, max=50)
     private float price;
 
-    @ManyToMany(mappedBy="concerts")
-    private List<Artist> artists= new ArrayList<>();
+    @ManyToOne
+    private Artist artists;
 
-    public Concert(String bandName, String city, String venue, String date, String time, float price, List<Artist> artists) {
-        this.bandName = bandName;
+    public Concert( String city, String venue, String date, String time, float price, Artist artists) {
+//        this.bandName = bandName;
         this.city = city;
         this.venue = venue;
         this.date = date;
@@ -74,13 +71,13 @@ public class Concert {
         return id;
     }
 
-    public String getBandName() {
-        return bandName;
-    }
-
-    public void setBandName(String bandName) {
-        this.bandName = bandName;
-    }
+//    public String getBandName() {
+//        return bandName;
+//    }
+//
+//    public void setBandName(String bandName) {
+//        this.bandName = bandName;
+//    }
 
     public String getCity() {
         return city;
@@ -122,11 +119,11 @@ public class Concert {
         this.price = price;
     }
 
-    public List<Artist> getArtists() {
+    public Artist getArtists() {
         return artists;
     }
 
-    public void setArtists(List<Artist> artists) {
+    public void setArtists(Artist artists) {
         this.artists = artists;
     }
 
@@ -135,7 +132,8 @@ public class Concert {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Concert concert = (Concert) o;
-        return Float.compare(concert.price, price) == 0 && bandName.equals(concert.bandName) && city.equals(concert.city) && venue.equals(concert.venue) && date.equals(concert.date) && time.equals(concert.time) && artists.equals(concert.artists);
+        return Float.compare(concert.price, price) == 0 &&
+                city.equals(concert.city) && venue.equals(concert.venue) && date.equals(concert.date) && time.equals(concert.time) && artists.equals(concert.artists);
     }
 
     @Override
@@ -147,6 +145,5 @@ public class Concert {
     public String toString() {
         return super.toString();
     }
-
 
 }

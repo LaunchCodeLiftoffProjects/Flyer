@@ -39,7 +39,7 @@
   </thead>
   <tbody id="myTable">
   <tr th:each="concert : ${concerts}">
-    <td th:value="${artistName}"></td>
+    <td th:value="${concert.artists}"></td>
     <td th:text="${concert.date}"></td>
     <td th:text="${concert.city}"></td>
     <td th:text="${concert.venue}"></td>
