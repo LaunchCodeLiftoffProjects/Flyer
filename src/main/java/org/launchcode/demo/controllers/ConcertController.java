@@ -40,6 +40,7 @@ public class ConcertController {
     }
 
     @PostMapping("")
+
     public String processAddConcertForm(@ModelAttribute @Valid Concert newConcert,
                                         Errors errors, Model model) {
 
@@ -50,7 +51,9 @@ public class ConcertController {
         }
 
         concertRepository.save(newConcert);
-        model.addAttribute("concerts",concertRepository.findAll());
+
+        model.addAttribute("concerts", concertRepository.findAll());
+        model.addAttribute("artists",  artistRepository.findAll());
 
         return "list";
     }

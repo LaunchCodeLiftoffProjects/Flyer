@@ -8,6 +8,8 @@
 <p th:unless="${artists} and ${artists.size()}">No Artists!</p>
 
 <div class="main">
+
+  
     <h1 style="text-align:center" th:text = "${artist.name}"> </h1>
     <table class="centered">
     <tr>
@@ -41,6 +43,7 @@
         <td th:text = "${post.postText}"></td>
     </tr>
     </table>
+
 
 </div>
 </body>

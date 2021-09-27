@@ -28,6 +28,7 @@ public class Artist {
     @Size(min = 1, max = 50)
     private String name;
 
+    //TODO Change instrument to number of members, eventually (maybe) list band members w/ their instruments.
     @NotBlank(message = "instrument can not be empty")
     @Size (min = 1, max = 50)
     private String instrument;
@@ -37,7 +38,7 @@ public class Artist {
     private String genre;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate birthdate;
+    private LocalDate estDate;
 
     private int age;
 
@@ -68,12 +69,12 @@ public class Artist {
         this.instrument = instrument;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
+    public LocalDate getEstDate() {
+        return estDate;
     }
 
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
+    public void setEstDate(LocalDate estDate) {
+        this.estDate = estDate;
     }
 
     public String getGenre() {
@@ -85,7 +86,7 @@ public class Artist {
     }
 
     public int getAge() {
-        Period period = Period.between(getBirthdate(),LocalDate.now());
+        Period period = Period.between(getEstDate(),LocalDate.now());
         age = period.getYears();
         return age;
     }
@@ -103,12 +104,14 @@ public class Artist {
         this.concerts = concerts;
     }
 
+
     public Artist(List<Concert> concerts, String name, String instrument, String genre, LocalDate birthdate, int age, List<PostMessage> posts) {
+
         this.concerts = concerts;
         this.name = name;
         this.instrument = instrument;
         this.genre = genre;
-        this.birthdate = birthdate;
+        this.estDate = estDate;
         this.age = age;
         this.posts = posts;
     }

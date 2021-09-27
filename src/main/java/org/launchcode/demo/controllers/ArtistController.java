@@ -33,12 +33,16 @@ public class ArtistController {
 
     @RequestMapping(method = RequestMethod.POST, value = "add")
     public String addArtist(@ModelAttribute @Valid Artist newArtist, Errors errors, Model model){
+
         //model.addAttribute("title",newArtist.getBirthdate());
+
         model.addAttribute("artist",newArtist);
 
         if(errors.hasErrors()){
             System.out.println(errors.getAllErrors());
+
             //System.out.println(newArtist.getBirthdate());
+
             return "artists/add";
         }
         artistRepository.save(newArtist);
