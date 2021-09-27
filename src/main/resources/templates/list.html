@@ -2,6 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/css/jquery.dataTables.css">
+
+<script type="text/javascript" c harset="utf8" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.js"></script>
+
 <head th:replace="fragments :: head">
 
   <div th:replace="fragments :: page-header"></div>
@@ -25,28 +30,25 @@
   <input type="submit" value="Search" />
 </form>
 
-<table class="centered">
+<table id="myTable" class="centered">
   <thead>
-  <tr>
-    <th>Band</th>
-    <th>Artists</th>
-    <th>Date</th>
-    <th>City</th>
-    <th>Venue</th>
-    <th>Time</th>
-    <th>Price</th>
-  </tr>
+    <tr>
+      <th>Artists</th>
+      <th>Date</th>
+      <th>City</th>
+      <th>Venue</th>
+      <th>Time</th>
+      <th>Price</th>
+    </tr>
   </thead>
-  <tbody id="myTable">
+  <tbody>
   <tr th:each="concert : ${concerts}">
 
-    <td>
-      <a th:text="${concert.bandName}" th:href="@{'/bandInfo/' + ${concert.id}}"></a>
-    </td>
+
     <td>
       <table>
         <tr th:each="artist: ${concert.artists}">
-        <td> <a th:text="${artist.name}" th:href="@{'/artists/view/' + ${artist.id}}"> </td>
+          <td <a th:text="${artist.name}" th:href="@{'/artists/view/' + ${artist.id}}"> </td>
         </tr>
       </table>
     </td>
@@ -60,7 +62,11 @@
   </tbody>
 </table>
 
-
+<script>
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 <script>
 $(document).ready(function(){
   $("#searchTerm").on("keyup", function() {
