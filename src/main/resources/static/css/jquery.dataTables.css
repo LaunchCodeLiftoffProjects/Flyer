@@ -83,8 +83,11 @@ table.dataTable tbody td.dt-body-nowrap {
  * Table styles
  */
 table.dataTable {
+
   width: 100%;
+  align: center
   margin: 0 auto;
+  m
   clear: both;
   border-collapse: separate;
   border-spacing: 0;
@@ -139,7 +142,7 @@ table.dataTable thead .sorting_desc_disabled {
   background-image: url("../images/sort_desc_disabled.png");
 }
 table.dataTable tbody tr {
-  background-color: #ffffff;
+  background-color: #616161;
 }
 table.dataTable tbody tr.selected {
   background-color: #B0BED9;
@@ -278,6 +281,7 @@ table.dataTable td {
 .dataTables_wrapper {
   position: relative;
   clear: both;
+  margin: 100px;
 }
 .dataTables_wrapper .dataTables_length {
   float: left;
@@ -286,7 +290,7 @@ table.dataTable td {
   border: 1px solid #aaa;
   border-radius: 3px;
   padding: 5px;
-  background-color: transparent;
+  background-color: #5a5a5a;
   padding: 4px;
 }
 .dataTables_wrapper .dataTables_filter {
@@ -297,7 +301,6 @@ table.dataTable td {
   border: 1px solid #aaa;
   border-radius: 3px;
   padding: 5px;
-  background-color: transparent;
   margin-left: 3px;
 }
 .dataTables_wrapper .dataTables_info {
@@ -320,12 +323,12 @@ table.dataTable td {
   text-decoration: none !important;
   cursor: pointer;
   *cursor: hand;
-  color: #333 !important;
+  color: #fff !important;
   border: 1px solid transparent;
   border-radius: 2px;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-  color: #333 !important;
+  color: #fff !important;
   border: 1px solid #979797;
   background-color: white;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #dcdcdc));
@@ -338,14 +341,14 @@ table.dataTable td {
   /* IE10+ */
   background: -o-linear-gradient(top, white 0%, #dcdcdc 100%);
   /* Opera 11.10+ */
-  background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
+  background: linear-gradient(to bottom, #a09f9f 0%, #585858 100%);
   /* W3C */
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
   cursor: default;
-  color: #666 !important;
+  color: #fff !important;
   border: 1px solid transparent;
-  background: transparent;
+
   box-shadow: none;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
@@ -409,7 +412,7 @@ table.dataTable td {
 .dataTables_wrapper .dataTables_info,
 .dataTables_wrapper .dataTables_processing,
 .dataTables_wrapper .dataTables_paginate {
-  color: #333;
+  color: #fff;
 }
 .dataTables_wrapper .dataTables_scroll {
   clear: both;

@@ -30,19 +30,19 @@
   <input type="submit" value="Search" />
 </form>
 
-<table class="centered">
+<table id="myTable" class="centered">
   <thead>
-  <tr>
-    <th>Band</th>
-    <th>Artists</th>
-    <th>Date</th>
-    <th>City</th>
-    <th>Venue</th>
-    <th>Time</th>
-    <th>Price</th>
-  </tr>
+    <tr>
+      <th>Band</th>
+      <th>Artists</th>
+      <th>Date</th>
+      <th>City</th>
+      <th>Venue</th>
+      <th>Time</th>
+      <th>Price</th>
+    </tr>
   </thead>
-  <tbody id="myTable">
+  <tbody>
   <tr th:each="concert : ${concerts}">
 
     <td>
@@ -51,7 +51,7 @@
     <td>
       <table>
         <tr th:each="artist: ${concert.artists}">
-        <td> <a th:text="${artist.name}" th:href="@{'/artists/view/' + ${artist.id}}"> </td>
+          <td <a th:text="${artist.name}" th:href="@{'/artists/view/' + ${artist.id}}"> </td>
         </tr>
       </table>
     </td>
@@ -67,7 +67,7 @@
 
 <script>
   $(document).ready( function () {
-    $('#table_id').DataTable();
+    $('#myTable').DataTable();
 } );
 </script>
 <script>
