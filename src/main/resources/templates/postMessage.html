@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container body-content">
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="main">
+  <h2>Create a Post</h2>
+  <form action="postMessage" method="post" style="max-width:600px;">
+
+    <div class="form-group" >
+      <label th:for="postName">Post Name</label>
+      <input class="form-control" th:field="${postMessage.postName}" />
+      <span th:errors="${postMessage.postName}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+      <label th:for="message">Message</label>
+        <textarea class="form-control" rows="5" th:field="${postMessage.postText}"></textarea>
+      <span th:errors="${postMessage.postText}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+      <label th:for="artist">Created By</label>
+      <select class="form-control" th:field="${postMessage.artist}"/>
+      <option th:each="artist: ${artists}" th:value="${artist.id}" th:text="${artist.name}"></option>
+      <span th:errors="${postMessage.artist.name}" class="error"></span>
+    </div>
+
+    <input type="submit"  value ="Submit Post" />
+
+  </form>
+</div>
+</body>
+
+</html>

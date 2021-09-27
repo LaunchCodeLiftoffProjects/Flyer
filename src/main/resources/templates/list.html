@@ -14,20 +14,8 @@
 
 <body>
 
-<!--<h1 th:text="${#strings.capitalizeWords(title)}"></h1>-->
 <form th:action="@{/search/results}" method="post">
   <h2 class="centered">Search by:</h2>
-
-<!--  <p>-->
-<!--    <span th:each="column :: ${columns}">-->
-<!--      <input-->
-<!--        type="radio"-->
-<!--        name="searchType"-->git
-<!--        th:id="${column.key}"-->
-<!--        th:value="{column.key}"-->
-<!--        th:checked="${column.key == 'all'}"/>-->
-<!--    </span>-->
-<!--  </p>-->
 
   <p class="centered">
     <label for="searchTerm">Keyword:</label>
@@ -41,6 +29,7 @@
   <thead>
   <tr>
     <th>Band</th>
+    <th>Artists</th>
     <th>Date</th>
     <th>City</th>
     <th>Venue</th>
@@ -50,7 +39,18 @@
   </thead>
   <tbody id="myTable">
   <tr th:each="concert : ${concerts}">
-    <td th:text="${concert.bandName}"></td>
+
+    <td>
+      <a th:text="${concert.bandName}" th:href="@{'/bandInfo/' + ${concert.id}}"></a>
+    </td>
+    <td>
+      <table>
+        <tr th:each="artist: ${concert.artists}">
+        <td> <a th:text="${artist.name}" th:href="@{'/artists/view/' + ${artist.id}}"> </td>
+        </tr>
+      </table>
+    </td>
+
     <td th:text="${concert.date}"></td>
     <td th:text="${concert.city}"></td>
     <td th:text="${concert.venue}"></td>
@@ -59,6 +59,7 @@
   </tr>
   </tbody>
 </table>
+
 
 <script>
 $(document).ready(function(){

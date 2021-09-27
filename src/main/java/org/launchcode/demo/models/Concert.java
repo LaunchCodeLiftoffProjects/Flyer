@@ -39,10 +39,10 @@ public class Concert {
     private String venue;
 
 
-//TODO Change formating of date MM-DD-YYYY
 //    @NotBlank(message = "Concert Date is required")
-    @DateTimeFormat(pattern = "MM/dd/yyyy")
-    private String date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+
 
     //TODO time displaying 24hr instead of 12hr.
     @DateTimeFormat(pattern ="hh:mm a")
@@ -50,12 +50,14 @@ public class Concert {
 //   @Size(min=1, max=50)
     private String time;
 
-    @NotNull(message = "Price is required")
-//    @Size(min=1, max=50)
+
+    //@NotBlank(message = "Price is required")
+    //@Size(min=1, max=150)
+
     private float price;
 
-    @ManyToMany(mappedBy="concerts")
-    private List<Artist> artists= new ArrayList<>();
+    @ManyToMany
+    private List<Artist> artists = new ArrayList<>();
 
     public Concert(String bandName, String city, String venue, String date, String time, float price, List<Artist> artists) {
         this.bandName = bandName;
@@ -138,6 +140,9 @@ public class Concert {
         return Float.compare(concert.price, price) == 0 && bandName.equals(concert.bandName) && city.equals(concert.city) && venue.equals(concert.venue) && date.equals(concert.date) && time.equals(concert.time) && artists.equals(concert.artists);
     }
 
+    public void addArtist(Artist artist){
+        this.artists.add(artist);
+    }
     @Override
     public int hashCode() {
         return super.hashCode();

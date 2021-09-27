@@ -28,13 +28,13 @@ public class ConcertController {
     @Autowired
     private ArtistRepository artistRepository;
 
-
     @GetMapping("")
     public String displayAddConcertForm(Model model) {
         model.addAttribute("title", "Add Concert");
         model.addAttribute(new Concert());
         model.addAttribute("concerts", concertRepository.findAll());
         model.addAttribute("artists",  artistRepository.findAll());
+//        model.addAttribute("artistConcertDto",)
 
         return "add";
     }
@@ -45,14 +45,20 @@ public class ConcertController {
                                         Errors errors, Model model) {
 
         if(errors.hasErrors()) {
-            return "add";
+            System.out.println(errors.getAllErrors());
+            System.out.println("This has Errors");
+            return "list";
         }
 
         concertRepository.save(newConcert);
+
         model.addAttribute("concerts", concertRepository.findAll());
         model.addAttribute("artists",  artistRepository.findAll());
+
         return "list";
     }
+
+
 
 //    private static List<String> add = new ArrayList<>();
 
