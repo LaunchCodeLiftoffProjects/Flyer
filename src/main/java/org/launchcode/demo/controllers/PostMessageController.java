@@ -43,7 +43,8 @@ public class PostMessageController {
             return "postMessage";
         }
         postMessageRepository.save(newPostMessage);
-        return "artists/index";
+        model.addAttribute("artist",newPostMessage.getArtist());
+        return "artists/view";
     }
 
     }

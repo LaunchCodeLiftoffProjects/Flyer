@@ -8,10 +8,12 @@ td, th {
 
 th {
     text-align: center;
+    border: 1px solid black;
 }
 
 td {
     vertical-align: top;
+    border: 1px solid black;
 }
 
 tr:nth-child(odd) {
@@ -21,6 +23,7 @@ tr:nth-child(odd) {
 table.centered {
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid black;
 }
 
 table.job-listing {

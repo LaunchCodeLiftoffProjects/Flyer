@@ -45,13 +45,17 @@ public class ConcertController {
 
         if(errors.hasErrors()) {
             System.out.println(errors.getAllErrors());
-            return "add";
+            System.out.println("This has Errors");
+            return "list";
         }
 
         concertRepository.save(newConcert);
+        model.addAttribute("concerts",concertRepository.findAll());
 
         return "list";
     }
+
+
 
 //    private static List<String> add = new ArrayList<>();
 

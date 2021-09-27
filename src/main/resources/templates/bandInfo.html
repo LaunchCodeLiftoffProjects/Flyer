@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+<p th:unless="${concert.artists} and ${concert.artists.size()}">No Artists in Band!</p>
+
+<div class="main">
+  <h1 style="text-align:center" th:text = "${concert.bandName}"> </h1>
+  <table class="centered">
+    <thead>
+      <th>Name</th>
+      <th>Instrument</th>
+      <th>Genre</th>
+      <th>Date of Birth</th>
+      <th>Age</th>
+    </thead>
+    <tr th:each = "artist :${concert.artists}">
+      <td th:text = "${artist.name}"></td>
+      <td th:text = "${artist.instrument}"></td>
+      <td th:text = "${artist.genre}"></td>
+      <td th:text = "${artist.birthdate}"></td>
+      <td th:text = "${artist.age}"></td>
+    </tr>
+  </table>
+
+</div>
+</body>
+
+</html>
