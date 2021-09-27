@@ -4,10 +4,7 @@ package org.launchcode.demo.models;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -54,10 +51,11 @@ public class Concert {
 //    @Size(min=1, max=50)
     private float price;
 
-    @ManyToMany(mappedBy="concerts")
-    private List<Artist> artists= new ArrayList<>();
+    @ManyToOne
+    private Artist artists;
+//    private List<Artist> artists= new ArrayList<>();
 
-    public Concert(String bandName, String city, String venue, String date, String time, float price, List<Artist> artists) {
+    public Concert(String bandName, String city, String venue, String date, String time, float price, Artist artists) {
         this.bandName = bandName;
         this.city = city;
         this.venue = venue;
@@ -122,11 +120,11 @@ public class Concert {
         this.price = price;
     }
 
-    public List<Artist> getArtists() {
+    public Artist getArtists() {
         return artists;
     }
 
-    public void setArtists(List<Artist> artists) {
+    public void setArtists(Artist artists) {
         this.artists = artists;
     }
 

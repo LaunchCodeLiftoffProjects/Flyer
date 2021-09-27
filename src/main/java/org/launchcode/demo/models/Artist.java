@@ -2,11 +2,8 @@ package org.launchcode.demo.models;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -20,8 +17,9 @@ public class Artist {
     @GeneratedValue
     private int id;
 
-    @ManyToMany
 
+    @OneToMany
+    @JoinColumn
     private List<Concert> concerts= new ArrayList<>();
 
     @NotBlank(message = "Artist Name is required")
