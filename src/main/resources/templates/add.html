@@ -9,13 +9,16 @@
 
 <div class="main">
   <h1>Create Your Concert!</h1>
+  <form action="add" method="post" style="max-width:600px;">
 
-  <form method="post" style="max-width:600px;">
-    <div class="form-group">
-      <label th:for="bandName">Band Name</label>
-      <input class="form-control" th:field="${concert.bandName}" />
-      <span th:errors="${concert.bandName}" class="error"></span>
-    </div>
+<!--    <div class="form-group">-->
+<!--      <label th:for="artists">Artists</label>-->
+<!--        <select name="artistName" id="artistName">-->
+<!--          <option th:each="artist : ${artists}" th:field="${concert.artists}" name="artist" th:value="${artist.id}"-->
+<!--                  th:text="${artist.name}"></option>-->
+<!--        </select>-->
+<!--      <a th:href="@{'/artists/add'}">Add Artist</a>-->
+<!--    </div>-->
 
     <div class="form-group">
       <label th:for="artists">Artists</label>

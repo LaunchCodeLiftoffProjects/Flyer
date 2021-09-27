@@ -92,7 +92,7 @@ public class Artist {
     }
 
     public void setAge() {
-        Period period = Period.between(getBirthdate(),LocalDate.now());
+        Period period = Period.between(getEstDate(),LocalDate.now());
         this.age = period.getYears();
     }
 

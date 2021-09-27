@@ -59,7 +59,7 @@ public class Concert {
     @ManyToMany
     private List<Artist> artists = new ArrayList<>();
 
-    public Concert(String bandName, String city, String venue, String date, String time, float price, List<Artist> artists) {
+    public Concert(String bandName, String city, String venue, LocalDate date, String time, float price, List<Artist> artists) {
         this.bandName = bandName;
         this.city = city;
         this.venue = venue;
@@ -100,11 +100,11 @@ public class Concert {
         this.venue = venue;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
