@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -29,9 +30,7 @@ public class Artist {
     private String name;
 
     //TODO Change instrument to number of members, eventually (maybe) list band members w/ their instruments.
-    @NotBlank(message = "instrument can not be empty")
-    @Size (min = 1, max = 50)
-    private String instrument;
+    private Integer numberOfMembers;
 
     @NotBlank(message = "Genre can not be empty")
     @Size (min = 1, max = 50)
@@ -61,12 +60,12 @@ public class Artist {
         this.id = id;
     }
 
-    public String getInstrument() {
-        return instrument;
+    public Integer getNumberOfMembers() {
+        return numberOfMembers;
     }
 
-    public void setInstrument(String instrument) {
-        this.instrument = instrument;
+    public void setNumberOfMembers(Integer numberOfMembers) {
+        this.numberOfMembers = numberOfMembers;
     }
 
     public LocalDate getEstDate() {
@@ -105,11 +104,11 @@ public class Artist {
     }
 
 
-    public Artist(List<Concert> concerts, String name, String instrument, String genre, LocalDate birthdate, int age, List<PostMessage> posts) {
+    public Artist(List<Concert> concerts, String name, Integer numberOfMembers, String genre, int age, List<PostMessage> posts) {
 
         this.concerts = concerts;
         this.name = name;
-        this.instrument = instrument;
+        this.numberOfMembers = numberOfMembers;
         this.genre = genre;
         this.estDate = estDate;
         this.age = age;

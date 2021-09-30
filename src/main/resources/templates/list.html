@@ -28,7 +28,7 @@
 <table class="centered">
   <thead>
   <tr>
-    <th>Band</th>
+
     <th>Artists</th>
     <th>Date</th>
     <th>City</th>
@@ -40,9 +40,6 @@
   <tbody id="myTable">
   <tr th:each="concert : ${concerts}">
 
-    <td>
-      <a th:text="${concert.bandName}" th:href="@{'/bandInfo/' + ${concert.id}}"></a>
-    </td>
     <td>
       <table>
         <tr th:each="artist: ${concert.artists}">

@@ -9,6 +9,7 @@ td, th {
 th {
     text-align: center;
     border: 1px solid black;
+    background-color: black;
 }
 body{
 background-color: #484848;
@@ -21,8 +22,17 @@ td {
     border: 1px solid black;
 }
 
+a {
+    color: #b3afaf;
+    text-decoration: underline;
+}
+
+tr:nth-child(even){
+    background-color: #4d0000
+}
+
 tr:nth-child(odd) {
-    background-color: #7f7b86
+    background-color: #404040
 }
 
 table.centered {

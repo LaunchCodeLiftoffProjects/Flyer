@@ -12,17 +12,17 @@
   <table class="centered">
     <thead>
       <th>Name</th>
-      <th>Instrument</th>
+      <th>Number of Members</th>
       <th>Genre</th>
-      <th>Date of Birth</th>
-      <th>Age</th>
+      <th>Established Date</th>
+
     </thead>
     <tr th:each = "artist :${concert.artists}">
       <td th:text = "${artist.name}"></td>
-      <td th:text = "${artist.instrument}"></td>
+      <td th:text = "${artist.numberOfMembers}"></td>
       <td th:text = "${artist.genre}"></td>
-      <td th:text = "${artist.birthdate}"></td>
-      <td th:text = "${artist.age}"></td>
+      <td th:text = "${artist.estDate}"></td>
+
     </tr>
   </table>
 
